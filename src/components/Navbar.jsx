@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
@@ -6,11 +7,15 @@ const Navbar = () => {
       id="header"
       className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300"
     >
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-12 h-[80px] flex items-center justify-between">
+      <div className="max-w-360 mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-brand-red flex items-center justify-center text-white shadow-lg shadow-brand-red/20">
-            <i className="fa-solid fa-shield-halved text-xl"></i>
-          </div>
+          <Image
+            src="/logo.jpeg"
+            alt="Logo"
+            width={70}
+            height={60}
+            className="object-contain"
+          />
           <span className="text-xl font-bold text-brand-navy tracking-tight">
             Wisa Guard
           </span>

@@ -8,7 +8,6 @@ const config = {
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
       },
-
       colors: {
         brand: {
           red: "#C0392B",
@@ -33,4 +32,4 @@ const config = {
   plugins: [],
 };
 
-export default config;
+module.exports = config;

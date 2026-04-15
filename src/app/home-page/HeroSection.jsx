@@ -10,7 +10,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <div className="relative w-full h-full">
           <Image
-            src="https://storage.googleapis.com/uxpilot-auth.appspot.com/4df6dc4c2f-57fd20d09d06f493a8b6.png"
+            src="/images/heroImage.jpeg"
             alt="professional security guard standing confidently in a modern corporate building lobby"
             fill
             className="object-cover opacity-40"
