@@ -1,6 +1,8 @@
+import Footer from "@/components/Footer";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Inter } from "next/font/google";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,6 +26,9 @@ export default function RootLayout({ children }) {
       <body className="m-0 p-0 text-brand-navy antialiased">
         <Navbar />
         {children}
+
+        <Footer />
+        <ScrollToTopButton />
       </body>
     </html>
   );
