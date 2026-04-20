@@ -24,7 +24,7 @@ export default async function Home() {
             case "whyChooseUs":
               return <WhyUsSection key={section._key} data={section} />;
 
-            case "servicesPreview":
+            case "servicesSection":
               return <OurServiceSection key={section._key} data={section} />;
 
             case "aboutIntro":

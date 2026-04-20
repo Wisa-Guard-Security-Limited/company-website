@@ -1,6 +1,7 @@
 export const homePageQuery = `
 *[_type == "page" && slug.current == "home-page"][0]{
   title,
+
   sections[]{
     ...,
 
@@ -22,6 +23,34 @@ export const homePageQuery = `
         title,
         description,
         icon
+      }
+    },
+
+    _type == "servicesSection" => {
+      tagline,
+      title,
+      subtitle,
+      buttonText,
+      buttonLink,
+
+      services[]{
+        title,
+        description,
+        icon,
+        link
+      },
+
+      featuredService{
+        title,
+        description,
+        buttonText,
+        buttonLink,
+        icon,
+        image{
+          asset->{
+            url
+          }
+        }
       }
     }
   }
