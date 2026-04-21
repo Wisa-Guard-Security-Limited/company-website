@@ -8,23 +8,14 @@ const fadeUp = {
   show: { opacity: 1, y: 0 },
 };
 
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const HeroSection = () => {
+const HeroSection = ({ hero }) => {
   return (
     <motion.section
       id="about-hero"
       className="relative h-125 w-full flex items-center justify-center overflow-hidden bg-brand-navy"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ amount: 0.9 }}
     >
       {/* Background */}
       <div className="absolute inset-0 z-0">
@@ -62,12 +53,12 @@ const HeroSection = () => {
       </motion.div>
 
       {/* Content */}
-      <motion.div
-        variants={container}
-        className="relative z-20 max-w-6xl mx-auto px-6 text-center"
-      >
+      <div className="relative z-20 max-w-6xl mx-auto px-6 text-center">
         <motion.div
           variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8"
         >
           <i className="fa-solid fa-shield-halved text-brand-red"></i>
@@ -78,22 +69,26 @@ const HeroSection = () => {
 
         <motion.h1
           variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ duration: 0.7, delay: 0.1 }}
           className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1]"
         >
-          About Wisa Guard <br />
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-red to-red-400">
-            Security Services
-          </span>
+          {hero?.headline ||
+            "Setting the Standard in Professional Security Solutions"}
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed"
         >
-          Setting the standard in professional security solutions across Kenya
-          since our inception.
+          {hero?.subtext ||
+            "With decades of experience, we provide top-tier security services tailored to your unique needs. Our commitment to excellence and professionalism ensures your safety is always our priority."}
         </motion.p>
-      </motion.div>
+      </div>
     </motion.section>
   );
 };

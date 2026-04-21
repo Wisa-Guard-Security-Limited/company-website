@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 
 const OurServiceSection = ({ data }) => {
+  console.log(data?.featuredService?.image?.asset?.url);
   const displyServices = () => {
     if (!data?.services || data.services.length === 0) {
       return (
@@ -80,9 +81,8 @@ const OurServiceSection = ({ data }) => {
                 <div className="relative w-full h-full">
                   <Image
                     src={
-                      data?.featuredService?.image
-                        ? data.featuredService.image.asset.url
-                        : "/images/privateInvestigations.jpeg"
+                      data?.image?.asset?.url ||
+                      "/images/privateInvestigations.jpeg"
                     }
                     alt="professional private investigator analyzing documents in a modern office, cinematic lighting"
                     fill

@@ -4,6 +4,8 @@ import whyChooseUsSchema from "./whyChooseUs";
 import servicesSectionSchema from "./servicesSection";
 import aboutLocationSection from "./aboutLocationSection";
 import ctaSection from "./ctaSection";
+import companyOverviewSection from "./companyOverviewSection";
+import missionVisionSection from "./missionVisionSection";
 export const schema = {
   types: [
     pageSchema,
@@ -12,5 +14,7 @@ export const schema = {
     servicesSectionSchema,
     aboutLocationSection,
     ctaSection,
+    companyOverviewSection,
+    missionVisionSection,
   ],
 };

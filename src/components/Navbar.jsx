@@ -73,21 +73,6 @@ const Navbar = () => {
           })}
         </nav>
 
-        {/* Desktop Right */}
-        <div className="hidden lg:flex items-center gap-6">
-          <a
-            href="tel:+254700000000"
-            className="text-sm font-medium text-brand-navy flex items-center gap-2"
-          >
-            <i className="fa-solid fa-phone text-brand-red" />
-            <span>Emergency: 911</span>
-          </a>
-
-          <button className="px-6 py-2.5 bg-brand-red text-white text-sm font-semibold rounded-full hover:bg-red-700 transition-colors shadow-lg shadow-brand-red/20">
-            Request Quote
-          </button>
-        </div>
-
         {/* Mobile Toggle */}
         <button
           onClick={() => setOpen(!open)}
@@ -112,21 +97,6 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-
-            {/* Divider */}
-            <div className="border-t pt-4 mt-4 space-y-4">
-              <a
-                href="tel:+254700000000"
-                className="flex items-center gap-2 text-brand-navy font-medium"
-              >
-                <i className="fa-solid fa-phone text-brand-red" />
-                Emergency: 911
-              </a>
-
-              <button className="w-full px-6 py-3 bg-brand-red text-white font-semibold rounded-full">
-                Request Quote
-              </button>
-            </div>
           </div>
         </div>
       )}

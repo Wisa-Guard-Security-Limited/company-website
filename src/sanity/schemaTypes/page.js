@@ -23,6 +23,8 @@ const pageSchema = {
       of: [
         { type: "hero" },
         { type: "whyChooseUs" },
+        { type: "companyOverviewSection" },
+        { type: "missionVisionSection" },
         { type: "servicesSection" },
         { type: "aboutLocationSection" },
         { type: "ctaSection" },
