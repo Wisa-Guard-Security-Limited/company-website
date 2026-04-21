@@ -34,7 +34,6 @@ const OurServiceSection = ({ data }) => {
       </div>
     ));
   };
-  console.log(data);
   return (
     <section id="services" className="py-24 bg-white">
       <div className="max-w-360 mx-auto px-6 lg:px-12">

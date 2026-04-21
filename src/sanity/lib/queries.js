@@ -26,7 +26,28 @@ export const homePageQuery = `
       }
     },
 
-    _type == "servicesSection" => {
+_type == "aboutLocationSection" => {
+  tagline,
+  title,
+  description,
+
+  stats[]{
+    value,
+    label
+  },
+
+  buttonText,
+  buttonLink,
+
+  locationsTitle,
+
+  locations[]{
+    name,
+    icon
+  }
+},
+
+_type == "servicesSection" => {
       tagline,
       title,
       subtitle,
