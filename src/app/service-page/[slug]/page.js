@@ -3,6 +3,7 @@ import React from "react";
 import HeroSection from "./HeroSection";
 import ServiceOverview from "./ServiceOverview";
 import BenifitsSection from "./BenifitsSection";
+import CtaSection from "../CtaSection";
 
 const ServiceDetail = () => {
   return (
@@ -12,6 +13,7 @@ const ServiceDetail = () => {
         <HeroSection />
         <ServiceOverview />
         <BenifitsSection />
+        <CtaSection />
       </div>
     </>
   );

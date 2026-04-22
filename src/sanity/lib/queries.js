@@ -1,87 +1,25 @@
+import {
+  HERO,
+  WHY_CHOOSE_US,
+  ABOUT_LOCATION,
+  CTA,
+  SERVICES_SECTION,
+  COMPANY_OVERVIEW,
+  MISSION_VISION,
+  COVERAGE,
+} from "./fragments";
+
 export const homePageQuery = `
 *[_type == "page" && slug.current == "home-page"][0]{
   title,
 
   sections[]{
     ...,
-
-    _type == "hero" => {
-      headline,
-      subtext,
-      backgroundImage{
-        asset->{
-          url
-        }
-      }
-    },
-
-    _type == "whyChooseUs" => {
-      tagline,
-      title,
-      description,
-      features[]{
-        title,
-        description,
-        icon
-      }
-    },
-
-_type == "aboutLocationSection" => {
-  tagline,
-  title,
-  description,
-
-  stats[]{
-    value,
-    label
-  },
-
-  buttonText,
-  buttonLink,
-
-  locationsTitle,
-
-  locations[]{
-    name,
-    icon
-  }
-},
-
-_type == "ctaSection" => {
-  icon,
-  title,
-  description,
-  buttonText,
-  buttonLink
-},
-
-_type == "servicesSection" => {
-      tagline,
-      title,
-      subtitle,
-      buttonText,
-      buttonLink,
-
-      services[]{
-        title,
-        description,
-        icon,
-        link
-      },
-
-      featuredService{
-        title,
-        description,
-        buttonText,
-        buttonLink,
-        icon,
-        image{
-          asset->{
-            url
-          }
-        }
-      }
-    }
+    ${HERO},
+    ${WHY_CHOOSE_US},
+    ${SERVICES_SECTION},
+    ${ABOUT_LOCATION},
+    ${CTA}
   }
 }
 `;
@@ -89,79 +27,22 @@ _type == "servicesSection" => {
 export const aboutPageQuery = `
 *[_type == "page" && slug.current == "about-page"][0]{
   title,
-
   sections[]{
     ...,
-
-    _type == "hero" => {
-      headline,
-      subtext,
-      backgroundImage{
-        asset->{
-          url
-        }
-      }
-    },
-
-   _type == "companyOverviewSection" => {
-    tagline,
-    title,
-
-    paragraphs,
-
-    highlights[]{
-      icon,
-      title,
-      subtitle
-    },
-
-    image{
-      asset->{ url }
-    },
-
-    badge{
-      icon,
-      value,
-      label
-    }
-  },
-
-  _type == "missionVisionSection" => {
-  mission{
-    icon,
-    title,
-    text
-  },
-  vision{
-    icon,
-    title,
-    text
-  }
-},
-
-_type == "complianceCoverageSection" => {
-  compliance{
-    icon,
-    title,
-    description,
-    badge{
-      icon,
-      title,
-      subtitle
-    }
-  },
-  coverage{
-    title,
-    icon,
-    description,
-    locations[]{
-      icon,
-      label
-    }
+    ${HERO},
+    ${COMPANY_OVERVIEW},
+    ${MISSION_VISION},
+    ${COVERAGE}
   }
 }
+`;
 
-  
+export const servicePageQuery = `
+*[_type == "page" && slug.current == "service-page"][0]{
+  title,
+  sections[]{
+    ...,
+    ${HERO}
   }
 }
 `;

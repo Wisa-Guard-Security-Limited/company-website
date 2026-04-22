@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
@@ -9,23 +8,15 @@ const fadeUp = {
   show: { opacity: 1, y: 0 },
 };
 
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
-const HeroSection = () => {
+const HeroSection = ({ hero }) => {
+  console.log(hero);
   return (
     <motion.section
       id="services-hero"
       className="relative h-100 w-full flex items-center justify-center overflow-hidden bg-brand-navy"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ amount: 0.9 }}
     >
       {/* Background */}
       <div className="absolute inset-0 z-0">
@@ -43,7 +34,7 @@ const HeroSection = () => {
         className="absolute inset-0 z-10 opacity-20 pointer-events-none flex items-center justify-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.2 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1.2 }}
       >
         <svg viewBox="0 0 1440 400" className="w-full h-full">
           <path
@@ -57,37 +48,32 @@ const HeroSection = () => {
 
       {/* Content */}
       <motion.div
-        variants={container}
+        variants={fadeUp}
+        initial="hidden"
+        animate="show"
+        transition={{ duration: 0.6 }}
         className="relative z-20 max-w-6xl mx-auto px-6 text-center"
       >
         <motion.h1
           variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ duration: 0.7, delay: 0.1 }}
           className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1]"
         >
-          Comprehensive <br />
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-red to-red-400">
-            Security Solutions
-          </span>
+          {hero?.headline || "Our Services"}
         </motion.h1>
 
         <motion.p
           variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed"
         >
-          Tailored protection strategies designed to mitigate risks and
-          safeguard your assets, personnel, and peace of mind.
+          {hero?.subtext ||
+            "Explore our comprehensive range of security solutions tailored to meet your unique needs. From on-site guards to advanced surveillance, we have you covered."}
         </motion.p>
-
-        <motion.div variants={fadeUp} className="mt-8">
-          <motion.button
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            className="px-8 py-3 bg-brand-red text-white font-semibold rounded-full hover:bg-red-700 transition-colors shadow-lg shadow-brand-red/20 inline-flex items-center gap-2"
-          >
-            Get a Free Consultation
-            <i className="fa-solid fa-arrow-right text-sm" />
-          </motion.button>
-        </motion.div>
       </motion.div>
     </motion.section>
   );

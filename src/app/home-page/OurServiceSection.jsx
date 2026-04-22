@@ -1,9 +1,7 @@
 import React from "react";
-
 import Image from "next/image";
-
 const OurServiceSection = ({ data }) => {
-  console.log(data?.featuredService?.image?.asset?.url);
+  console.log(data);
   const displyServices = () => {
     if (!data?.services || data.services.length === 0) {
       return (
@@ -56,42 +54,44 @@ const OurServiceSection = ({ data }) => {
           {displyServices()}
 
           {/* <!-- Service 5 --> */}
-          <div className="group relative overflow-hidden rounded-3xl bg-brand-light border border-gray-100 p-8 hover:shadow-hover transition-all duration-300 md:col-span-2 lg:col-span-2">
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="flex-1">
-                <div className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-brand-red mb-6">
-                  <i className="fa-solid fa-magnifying-glass text-xl"></i>
+          {data?.featuredService && (
+            <div className="group relative overflow-hidden rounded-3xl bg-brand-light border border-gray-100 p-8 hover:shadow-hover transition-all duration-300 md:col-span-2 lg:col-span-2">
+              <div className="flex flex-col md:flex-row gap-8 items-center">
+                <div className="flex-1">
+                  <div className="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-brand-red mb-6">
+                    <i className="fa-solid fa-magnifying-glass text-xl"></i>
+                  </div>
+                  <h4 className="text-2xl font-bold text-brand-navy mb-4">
+                    {data?.featuredService?.title || "Private Investigations"}
+                  </h4>
+                  <p className="text-brand-gray mb-8 max-w-md">
+                    {data?.featuredService?.description ||
+                      "Our expert private investigators provide discreet and thorough investigations for personal, corporate, and legal matters. With a commitment to confidentiality and professionalism, we uncover the truth to help you make informed decisions."}
+                  </p>
+                  <a
+                    href="#"
+                    className="inline-flex items-center px-6 py-3 bg-brand-navy text-white rounded-full font-semibold hover:bg-gray-800 transition-colors"
+                  >
+                    {data?.featuredService?.buttonText}{" "}
+                    <i className="fa-solid fa-arrow-right ml-2"></i>
+                  </a>
                 </div>
-                <h4 className="text-2xl font-bold text-brand-navy mb-4">
-                  {data?.featuredService?.title || "Private Investigations"}
-                </h4>
-                <p className="text-brand-gray mb-8 max-w-md">
-                  {data?.featuredService?.description ||
-                    "Our expert private investigators provide discreet and thorough investigations for personal, corporate, and legal matters. With a commitment to confidentiality and professionalism, we uncover the truth to help you make informed decisions."}
-                </p>
-                <a
-                  href="#"
-                  className="inline-flex items-center px-6 py-3 bg-brand-navy text-white rounded-full font-semibold hover:bg-gray-800 transition-colors"
-                >
-                  {data?.featuredService?.buttonText}{" "}
-                  <i className="fa-solid fa-arrow-right ml-2"></i>
-                </a>
-              </div>
-              <div className="w-full md:w-1/2 h-48 rounded-2xl overflow-hidden bg-gray-200">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={
-                      data?.image?.asset?.url ||
-                      "/images/privateInvestigations.jpeg"
-                    }
-                    alt="professional private investigator analyzing documents in a modern office, cinematic lighting"
-                    fill
-                    className="object-cover"
-                  />
+                <div className="w-full md:w-1/2 h-48 rounded-2xl overflow-hidden bg-gray-200">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={
+                        data?.image?.asset?.url ||
+                        "/images/privateInvestigations.jpeg"
+                      }
+                      alt="professional private investigator analyzing documents in a modern office, cinematic lighting"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

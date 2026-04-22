@@ -4,16 +4,30 @@ import MainServices from "./MainServices";
 import ProcessSection from "./ProcessSection";
 import CtaSection from "./CtaSection";
 import Navbar from "@/components/Navbar";
+// --- QUERIES ---
+import { client } from "@/sanity/lib/client";
+import { servicePageQuery } from "@/sanity/lib/queries";
 
-const ServicePage = () => {
+const ServicePage = async () => {
+  const page = await client.fetch(servicePageQuery);
+  const sections = page?.sections || [];
+
   return (
     <>
       <Navbar />
       <div id="main-content" className="pt-20">
-        <HeroSection />
+        {sections.map((section) => {
+          switch (section._type) {
+            case "hero":
+              return <HeroSection key={section._key} hero={section} />;
+            default:
+              return null;
+          }
+        })}
+        {/* <HeroSection />
         <MainServices />
         <ProcessSection />
-        <CtaSection />
+        <CtaSection /> */}
       </div>
     </>
   );
