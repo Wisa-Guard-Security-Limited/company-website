@@ -8,7 +8,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About us", href: "/about-us" },
   { name: "Services", href: "/service-page" },
-  { name: "Investigations", href: "#" },
+  { name: "Investigations", href: "/investigation-page" },
   { name: "Gallery", href: "/gallery-page" },
   { name: "Contact Us", href: "/contact-us" },
 ];
@@ -46,7 +46,7 @@ const Navbar = () => {
               <Link
                 key={i}
                 href={link.href}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors
+                className={`relative px-4 py-2 text-sm font-medium transition-colors cursor-pointer
               ${
                 isActive
                   ? "text-brand-navy"
