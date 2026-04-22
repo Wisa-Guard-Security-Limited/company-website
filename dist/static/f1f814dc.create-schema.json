@@ -1,0 +1,582 @@
+[
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "of": [
+          {
+            "type": "hero"
+          },
+          {
+            "type": "whyChooseUs"
+          },
+          {
+            "type": "companyOverviewSection"
+          },
+          {
+            "type": "missionVisionSection",
+            "title": "Mission & Vision Section"
+          },
+          {
+            "type": "servicesSection"
+          },
+          {
+            "type": "aboutLocationSection",
+            "title": "About + Locations Section"
+          },
+          {
+            "type": "complianceCoverageSection",
+            "title": "Compliance & Coverage Section"
+          },
+          {
+            "type": "processSection"
+          },
+          {
+            "type": "ctaSection",
+            "title": "CTA Section"
+          }
+        ],
+        "name": "sections",
+        "type": "array",
+        "title": "Page Sections"
+      }
+    ],
+    "name": "page",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "headline",
+        "type": "string"
+      },
+      {
+        "name": "subtext",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "backgroundImage",
+        "type": "image"
+      }
+    ],
+    "name": "hero",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "tagline",
+        "type": "string",
+        "title": "Small Title (Top Text)"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Main Title"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "description": "FontAwesome icon class (e.g. fa-bolt)",
+                "name": "icon",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "features",
+        "type": "array"
+      }
+    ],
+    "name": "whyChooseUs",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "tagline",
+        "type": "string"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "subtitle",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "service"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to service"
+          }
+        ],
+        "name": "services",
+        "type": "array"
+      },
+      {
+        "to": [
+          {
+            "type": "service"
+          }
+        ],
+        "name": "featuredService",
+        "type": "reference"
+      }
+    ],
+    "name": "servicesSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "tagline",
+        "type": "string"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "value",
+                "type": "string"
+              },
+              {
+                "name": "label",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "stats",
+        "type": "array"
+      },
+      {
+        "name": "buttonText",
+        "type": "string"
+      },
+      {
+        "name": "buttonLink",
+        "type": "string"
+      },
+      {
+        "name": "locationsTitle",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "description": "FontAwesome class e.g fa-map-pin",
+                "name": "icon",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "locations",
+        "type": "array"
+      }
+    ],
+    "name": "aboutLocationSection",
+    "type": "object",
+    "title": "About + Locations Section"
+  },
+  {
+    "fields": [
+      {
+        "description": "FontAwesome class e.g fa-shield-halved",
+        "name": "icon",
+        "type": "string"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "buttonText",
+        "type": "string"
+      },
+      {
+        "name": "buttonLink",
+        "type": "string"
+      }
+    ],
+    "name": "ctaSection",
+    "type": "object",
+    "title": "CTA Section"
+  },
+  {
+    "fields": [
+      {
+        "name": "tagline",
+        "type": "string"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "type": "text"
+          }
+        ],
+        "name": "paragraphs",
+        "type": "array"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "icon",
+                "type": "string"
+              },
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "subtitle",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "highlights",
+        "type": "array"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "fields": [
+          {
+            "name": "icon",
+            "type": "string"
+          },
+          {
+            "name": "value",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "type": "string"
+          }
+        ],
+        "name": "badge",
+        "type": "object"
+      }
+    ],
+    "name": "companyOverviewSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "fields": [
+          {
+            "description": "FontAwesome class e.g fa-bullseye",
+            "name": "icon",
+            "type": "string"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "type": "text"
+          }
+        ],
+        "name": "mission",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "description": "FontAwesome class e.g fa-eye",
+            "name": "icon",
+            "type": "string"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "text",
+            "type": "text"
+          }
+        ],
+        "name": "vision",
+        "type": "object"
+      }
+    ],
+    "name": "missionVisionSection",
+    "type": "object",
+    "title": "Mission & Vision Section"
+  },
+  {
+    "fields": [
+      {
+        "fields": [
+          {
+            "name": "icon",
+            "type": "string"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "text"
+          },
+          {
+            "fields": [
+              {
+                "name": "icon",
+                "type": "string"
+              },
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "subtitle",
+                "type": "string"
+              }
+            ],
+            "name": "badge",
+            "type": "object"
+          }
+        ],
+        "name": "compliance",
+        "type": "object",
+        "title": "Compliance Block"
+      },
+      {
+        "fields": [
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "icon",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "type": "text"
+          },
+          {
+            "of": [
+              {
+                "fields": [
+                  {
+                    "name": "icon",
+                    "type": "string"
+                  },
+                  {
+                    "name": "label",
+                    "type": "string"
+                  }
+                ],
+                "type": "object"
+              }
+            ],
+            "name": "locations",
+            "type": "array"
+          }
+        ],
+        "name": "coverage",
+        "type": "object",
+        "title": "Coverage Block"
+      }
+    ],
+    "name": "complianceCoverageSection",
+    "type": "object",
+    "title": "Compliance & Coverage Section"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title"
+        },
+        "validation": [
+          {
+            "level": "error",
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ]
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "icon",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      }
+    ],
+    "name": "service",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "tagline",
+        "type": "string"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "number",
+                "type": "number"
+              },
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "name": "highlight",
+                "type": "boolean"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "steps",
+        "type": "array"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "fields": [
+          {
+            "name": "icon",
+            "type": "string"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "subtitle",
+            "type": "string"
+          }
+        ],
+        "name": "badge",
+        "type": "object"
+      }
+    ],
+    "name": "processSection",
+    "type": "object"
+  }
+]
