@@ -25,7 +25,7 @@ const ServicePage = async () => {
               return <MainServices key={section._key} data={section} />;
             case "processSection":
               return <ProcessSection key={section._key} data={section} />;
-            case "cta":
+            case "ctaSection":
               return <CtaSection key={section._key} data={section} />;
             default:
               return null;

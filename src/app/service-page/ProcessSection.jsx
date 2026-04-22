@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 const ProcessSection = ({ data }) => {
-  console.log(data);
   const displaySteps = () => {
     if (!data?.steps || data?.steps.length === 0) {
       return (
