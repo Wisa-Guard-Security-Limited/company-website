@@ -31,10 +31,6 @@ const ServicePage = async () => {
               return null;
           }
         })}
-        {/* <HeroSection />
-        <MainServices />
-        <ProcessSection />
-        <CtaSection /> */}
       </div>
     </>
   );
