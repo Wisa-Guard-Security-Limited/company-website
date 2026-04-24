@@ -9,7 +9,7 @@ const ServiceDetail = () => {
   return (
     <>
       <Navbar />
-      <div id="main-content" className="pt-20">
+      <div id="main-content" className="pt-16">
         <HeroSection />
         <ServiceOverview />
         <BenifitsSection />

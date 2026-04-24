@@ -15,7 +15,7 @@ const Gallery = async () => {
   return (
     <>
       <Navbar />
-      <div id="main-content" className="pt-18">
+      <div id="main-content" className="pt-16">
         {sections.map((section) => {
           switch (section._type) {
             case "hero":
