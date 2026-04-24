@@ -68,7 +68,7 @@ const CtaSection = ({ data }) => {
                        hover:bg-red-700 transition-colors 
                        shadow-lg shadow-brand-red/20 
                        flex items-center gap-2 sm:gap-3 
-                       w-full sm:w-auto"
+                       w-full sm:w-auto cursor-pointer"
           >
             Request a Quote
             <i className="fa-solid fa-arrow-right" />
@@ -85,7 +85,7 @@ const CtaSection = ({ data }) => {
                        hover:bg-gray-50 transition-colors 
                        shadow-soft border border-gray-200 
                        flex items-center gap-2 sm:gap-3 
-                       w-full sm:w-auto"
+                       w-full sm:w-auto cursor-pointer"
           >
             Call Us Now
             <i className="fa-solid fa-phone" />
