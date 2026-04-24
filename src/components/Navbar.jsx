@@ -46,7 +46,7 @@ const Navbar = () => {
               <Link
                 key={i}
                 href={link.href}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors cursor-pointer
+                className={`relative cursor-pointer px-4 py-2 text-sm font-medium transition-colors
               ${
                 isActive
                   ? "text-brand-navy"
