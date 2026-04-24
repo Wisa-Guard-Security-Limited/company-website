@@ -9,6 +9,7 @@ import missionVisionSection from "./missionVisionSection";
 import complianceCoverageSection from "./complianceCoverageSection";
 import service from "./service";
 import processSection from "./processSection";
+import professionalSectionSchema from "./professionalSection";
 export const schema = {
   types: [
     pageSchema,
@@ -22,5 +23,6 @@ export const schema = {
     complianceCoverageSection,
     service,
     processSection,
+    professionalSectionSchema,
   ],
 };

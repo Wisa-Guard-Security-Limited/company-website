@@ -170,3 +170,19 @@ _type == "processSection" => {
     subtitle
   }
 }`;
+
+export const PROFESSIONAL_SECTION = `
+  _type == "professionalSection" => {
+      eyebrow,
+      title,
+      description1,
+      description2,
+      image{
+        asset->{
+          url
+        }
+      },
+      highlightCard,
+      stats
+  }
+`;

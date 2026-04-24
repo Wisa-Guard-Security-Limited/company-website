@@ -18,6 +18,8 @@ const InvestigationPage =  async () => {
           switch (section._type) {
             case "hero":
               return <HeroSection key={section._key} hero={section} />;
+            case "professionalSection":
+              return <ProffesionalSection key={section._key} data={section} />;
 
             default:
               return null;

@@ -29,6 +29,7 @@ const pageSchema = {
         { type: "aboutLocationSection" },
         { type: "complianceCoverageSection" },
         { type: "processSection" },
+        { type: "professionalSection" },
         { type: "ctaSection" },
       ],
     },

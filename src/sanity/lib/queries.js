@@ -8,6 +8,7 @@ import {
   MISSION_VISION,
   COVERAGE,
   PROCESS_SECTION,
+  PROFESSIONAL_SECTION,
 } from "./fragments";
 
 export const homePageQuery = `
@@ -56,6 +57,7 @@ export const investigationPageQuery = `
   sections[]{
     ...,
     ${HERO},
+    ${PROFESSIONAL_SECTION}
   }
 }
 `;
