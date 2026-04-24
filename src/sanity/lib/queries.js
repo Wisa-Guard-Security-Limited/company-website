@@ -10,6 +10,7 @@ import {
   PROCESS_SECTION,
   PROFESSIONAL_SECTION,
   INVESTIGATION_SECTION_QUERY,
+  GALLERY_SECTION_QUERY,
 } from "./fragments";
 
 export const homePageQuery = `
@@ -70,7 +71,10 @@ export const galleryPageQuery = `
   sections[]{
     ...,
     ${HERO},
+    ${GALLERY_SECTION_QUERY}
   
   }
 }
 `;
+
+

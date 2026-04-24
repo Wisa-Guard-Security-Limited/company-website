@@ -25,7 +25,7 @@ const ProcessSection = ({ data }) => {
       );
     });
   };
-  console.log(data?.image?.asset?.url);
+  
   return (
     <section
       id="service-process"

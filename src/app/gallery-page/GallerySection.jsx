@@ -2,47 +2,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { urlFor } from "@/sanity/lib/image";
 
-const galleryItems = [
-  {
-    title: "Corporate Guarding",
-    category: "Guarding Services",
-    image:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/33cdb56a74-73006de3775deb74ea57.png",
-  },
-  {
-    title: "Festival Crowd Control",
-    category: "Event Security",
-    image:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/33cdb56a74-73006de3775deb74ea57.png",
-  },
-  {
-    title: "K9 Perimeter Patrol",
-    category: "Canine Unit",
-    image:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/33cdb56a74-73006de3775deb74ea57.png",
-  },
-  {
-    title: "Mobile Response Unit",
-    category: "Patrol & Response",
-    image:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/33cdb56a74-73006de3775deb74ea57.png",
-  },
-  {
-    title: "24/7 Command Center",
-    category: "Surveillance",
-    image:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/33cdb56a74-73006de3775deb74ea57.png",
-  },
-  {
-    title: "Executive Protection",
-    category: "VIP Security",
-    image:
-      "https://storage.googleapis.com/uxpilot-auth.appspot.com/33cdb56a74-73006de3775deb74ea57.png",
-  },
-];
-
-export default function GallerySection() {
+export default function GallerySection({ data }) {
+  const galleryItems = data?.galleryItems || [];
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const next = () => {
@@ -53,42 +16,60 @@ export default function GallerySection() {
   const prev = () => {
     if (currentIndex === null) return;
     setCurrentIndex(
-      (currentIndex - 1 + galleryItems.length) % galleryItems.length,
+      (currentIndex - 1 + galleryItems.length) % galleryItems.length
     );
   };
 
-  const selected = currentIndex !== null ? galleryItems[currentIndex] : null;
+  const selected =
+    currentIndex !== null ? galleryItems[currentIndex] : null;
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-12 sm:py-16 lg:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
+
         {/* GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 
+                        gap-4 sm:gap-6 lg:gap-8">
+
           {galleryItems.map((item, i) => (
             <motion.div
               key={i}
               whileHover={{ scale: 1.02 }}
-              className="group relative rounded-3xl overflow-hidden cursor-pointer"
+              className="group relative rounded-[24px] sm:rounded-[32px] lg:rounded-[40px] 
+                         overflow-hidden cursor-pointer"
               onClick={() => setCurrentIndex(i)}
             >
               <Image
-                src={item.image}
+                unoptimized
+                src={`${urlFor(item?.image?.asset?.url).url()}`}
                 alt={item.title}
                 width={800}
                 height={600}
-                className="w-full h-87.5 object-cover transition duration-500 group-hover:scale-110"
+                className="w-full h-48 sm:h-56 lg:h-72 
+                           object-cover transition duration-500 
+                           group-hover:scale-110"
               />
 
-              <div className="absolute inset-0 bg-brand-navy/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center text-center p-6">
-                <div className="w-12 h-12 rounded-full bg-brand-red flex items-center justify-center text-white mb-4">
-                  <i className="fa-solid fa-plus"></i>
+              <div className="absolute inset-0 bg-brand-navy/70 
+                              opacity-0 group-hover:opacity-100 
+                              transition duration-300 
+                              flex flex-col items-center justify-center 
+                              text-center p-4 sm:p-6">
+
+                <div className="w-10 h-10 sm:w-12 sm:h-12 
+                                rounded-full bg-brand-red 
+                                flex items-center justify-center text-white mb-4">
+                  <i className="fa-solid fa-plus text-sm sm:text-base" />
                 </div>
 
-                <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                <p className="text-gray-300 text-sm">{item.category}</p>
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white">
+                  {item.title}
+                </h3>
+
               </div>
             </motion.div>
           ))}
+
         </div>
       </div>
 
@@ -96,24 +77,26 @@ export default function GallerySection() {
       <AnimatePresence>
         {selected && (
           <motion.div
-            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 z-50 
+                       flex items-center justify-center p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setCurrentIndex(null)}
           >
-            {/* CONTENT */}
             <motion.div
-              className="relative w-full max-w-3xl"
+              className="relative w-full max-w-2xl sm:max-w-3xl"
               initial={{ scale: 0.85 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.85 }}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* IMAGE CONTAINER (FIXED HEIGHT) */}
-              <div className="relative w-full h-[60vh]">
+
+              {/* IMAGE */}
+              <div className="relative w-full h-[50vh] sm:h-[60vh] lg:h-[70vh]">
                 <Image
-                  src={selected.image}
+                  unoptimized
+                  src={`${urlFor(selected?.image?.asset?.url).url()}`}
                   alt={selected.title}
                   fill
                   className="object-contain rounded-2xl"
@@ -121,17 +104,20 @@ export default function GallerySection() {
               </div>
 
               {/* TEXT */}
-              <div className="mt-4 text-center">
-                <h3 className="text-white text-2xl font-bold">
+              <div className="mt-4 sm:mt-6 text-center">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white">
                   {selected.title}
                 </h3>
-                <p className="text-gray-300">{selected.category}</p>
+                <p className="text-sm sm:text-base text-gray-300">
+                  {selected.category}
+                </p>
               </div>
 
               {/* CLOSE */}
               <button
                 onClick={() => setCurrentIndex(null)}
-                className="absolute top-4 right-4 text-white text-xl"
+                className="absolute top-3 sm:top-4 right-3 sm:right-4 
+                           text-white text-lg sm:text-xl"
               >
                 ✕
               </button>
@@ -139,17 +125,22 @@ export default function GallerySection() {
               {/* NAVIGATION */}
               <button
                 onClick={prev}
-                className="absolute left-0 top-1/2 -translate-y-1/2 text-white text-3xl px-4"
+                className="absolute left-2 sm:left-0 top-1/2 
+                           -translate-y-1/2 text-white 
+                           text-2xl sm:text-3xl px-3 sm:px-4"
               >
                 ‹
               </button>
 
               <button
                 onClick={next}
-                className="absolute right-0 top-1/2 -translate-y-1/2 text-white text-3xl px-4"
+                className="absolute right-2 sm:right-0 top-1/2 
+                           -translate-y-1/2 text-white 
+                           text-2xl sm:text-3xl px-3 sm:px-4"
               >
                 ›
               </button>
+
             </motion.div>
           </motion.div>
         )}

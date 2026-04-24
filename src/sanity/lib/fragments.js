@@ -199,3 +199,19 @@ export const INVESTIGATION_SECTION_QUERY = `
   }
 }
 `;
+
+
+export const GALLERY_SECTION_QUERY = `
+ _type == "gallerySection" => {
+  eyebrow,
+  title,
+  galleryItems[]{
+    title,
+    image{
+      asset->{
+        url
+      }
+    }
+  }
+}
+`;
