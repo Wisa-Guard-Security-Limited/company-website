@@ -3,6 +3,7 @@ import "./globals.css";
 
 import { Inter } from "next/font/google";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import WhatsAppChat from "@/components/WhatsAppChat";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         {children}
 
         <Footer />
+        <WhatsAppChat />
         <ScrollToTopButton />
       </body>
     </html>
