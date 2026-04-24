@@ -1,6 +1,32 @@
+import { CompanyEmail, Facebook, LinkedIn, TelPhoneContacts } from "@/data";
+import Link from "next/link";
 import React from "react";
 
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "About us", href: "/about-us" },
+  { name: "Services", href: "/service-page" },
+  { name: "Investigations", href: "/investigation-page" },
+  { name: "Gallery", href: "/gallery-page" },
+  { name: "Contact Us", href: "/contact-us" },
+];
+
 const Footer = () => {
+ const displayNavLinks = () => {
+  return navLinks.map((link, index) => {
+    return (
+       <li key={index}>
+                <Link
+                  href={link.href}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  {link.name}
+                </Link>
+              </li>
+    )
+  })
+ }
+
   return (
     <footer
       id="footer"
@@ -23,24 +49,21 @@ const Footer = () => {
               reliability, and peace of mind 24/7.
             </p>
             <div className="flex gap-4">
-              <a
-                href="#"
+              <Link
+               target="_blank"
+                href={Facebook}
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-red transition-colors"
               >
                 <i className="fa-brands fa-facebook-f"></i>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-red transition-colors"
-              >
-                <i className="fa-brands fa-twitter"></i>
-              </a>
-              <a
-                href="#"
+              </Link>
+              
+              <Link
+                href={LinkedIn}
+                target="_blank"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-red transition-colors"
               >
                 <i className="fa-brands fa-linkedin-in"></i>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -48,46 +71,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-6 text-white">Quick Links</h4>
             <ul className="space-y-4">
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Our Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Investigations
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Gallery
-                </a>
-              </li>
+              
+              {
+                displayNavLinks()
+              }
             </ul>
           </div>
 
@@ -152,11 +139,11 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <i className="fa-solid fa-phone text-brand-red"></i>
-                <span className="text-gray-400">+254 700 000 000</span>
+                <span className="text-gray-400">{TelPhoneContacts}</span>
               </li>
               <li className="flex items-center gap-3">
                 <i className="fa-solid fa-envelope text-brand-red"></i>
-                <span className="text-gray-400">info@wisaguard.co.ke</span>
+                <span className="text-gray-400">{CompanyEmail}</span>
               </li>
             </ul>
           </div>
@@ -167,20 +154,7 @@ const Footer = () => {
             &copy; 2026 Wisa Guard Security Services Limited. All rights
             reserved.
           </p>
-          <div className="flex gap-6 text-sm">
-            <a
-              href="#"
-              className="text-gray-500 hover:text-white transition-colors"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 hover:text-white transition-colors"
-            >
-              Terms of Service
-            </a>
-          </div>
+        
         </div>
       </div>
     </footer>
