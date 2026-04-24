@@ -47,7 +47,7 @@ const displayServices = () => {
   
     <li key={service._id || index}>
       <Link
-        href="/"
+        href={`service-page/${service.slug.current}`}
         className="text-gray-400 hover:text-white transition-colors"
       >
         {service.title || "Guarding Services"}
