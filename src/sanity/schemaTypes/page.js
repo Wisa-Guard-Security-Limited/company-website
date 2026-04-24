@@ -31,6 +31,7 @@ const pageSchema = {
         { type: "processSection" },
         { type: "professionalSection" },
         { type: "investigationSection" },
+        { type: "gallerySection" },
         { type: "ctaSection" },
       ],
     },
