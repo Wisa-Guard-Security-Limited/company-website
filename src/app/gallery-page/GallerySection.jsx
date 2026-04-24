@@ -35,7 +35,7 @@ export default function GallerySection({ data }) {
             <motion.div
               key={i}
               whileHover={{ scale: 1.02 }}
-              className="group relative rounded-[24px] sm:rounded-[32px] lg:rounded-[40px] 
+              className="group relative rounded-[18px] sm:rounded-[26px] lg:rounded-[34px] 
                          overflow-hidden cursor-pointer"
               onClick={() => setCurrentIndex(i)}
             >
