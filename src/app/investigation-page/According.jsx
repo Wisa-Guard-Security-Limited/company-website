@@ -1,14 +1,20 @@
 "use client";
 import { useState } from "react";
 
-
-
-export default function Accordion({ services}) {
+export default function Accordion({ services = [] }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const toggle = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    setActiveIndex((prev) => (prev === index ? null : index));
   };
+
+  if (!Array.isArray(services) || services.length === 0) {
+    return (
+      <div className="text-center text-brand-gray py-6">
+        No services available.
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">
@@ -17,19 +23,22 @@ export default function Accordion({ services}) {
 
         return (
           <div
-            key={index}
+            key={item?.id || index}
             className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden transition-all duration-300"
           >
             <button
+              type="button"
               onClick={() => toggle(index)}
+              aria-expanded={isOpen}
               className="w-full px-8 py-6 flex items-center justify-between text-left cursor-pointer"
             >
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-lg bg-brand-red/10 text-brand-red flex items-center justify-center">
-                  <i className={`fa-solid ${item.icon}`}></i>
+                  {item?.icon && <i className={`fa-solid ${item.icon}`} />}
                 </div>
+
                 <span className="text-lg font-bold text-brand-navy">
-                  {item.title}
+                  {item?.title || "Untitled"}
                 </span>
               </div>
 
@@ -37,7 +46,7 @@ export default function Accordion({ services}) {
                 className={`fa-solid fa-chevron-down transition-transform duration-300 ${
                   isOpen ? "rotate-180" : ""
                 }`}
-              ></i>
+              />
             </button>
 
             <div
@@ -45,7 +54,9 @@ export default function Accordion({ services}) {
                 isOpen ? "max-h-40 py-4" : "max-h-0"
               }`}
             >
-              <p className="text-brand-gray">{item.content}</p>
+              <p className="text-brand-gray text-sm leading-relaxed">
+                {item?.content || "No details available."}
+              </p>
             </div>
           </div>
         );
