@@ -14,7 +14,7 @@ const AboutUs = async () => {
   return (
     <>
       <Navbar />
-      <div id="main-content" className="pt-20">
+      <div id="main-content" className="pt-18">
         {sections.map((section) => {
           switch (section._type) {
             case "hero":

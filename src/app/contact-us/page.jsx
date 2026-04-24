@@ -8,7 +8,7 @@ const ContactUs = () => {
   return (
     <>
       <Navbar />
-      <div id="main-content" className="pt-20">
+      <div id="main-content" className="pt-18">
         <HeroSection />
         <ContactForm />
         <MapSection />
