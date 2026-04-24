@@ -1,7 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
-const HeroSection = () => {
+const HeroSection = ({hero}) => {
+  console.log(hero)
   return (
     <section
       id="investigations-hero"

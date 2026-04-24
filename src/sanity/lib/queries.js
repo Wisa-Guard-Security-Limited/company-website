@@ -49,3 +49,13 @@ export const servicePageQuery = `
   }
 }
 `;
+
+export const investigationPageQuery = `
+*[_type == "page" && slug.current == "investigation-page"][0]{
+  title,
+  sections[]{
+    ...,
+    ${HERO},
+  }
+}
+`;

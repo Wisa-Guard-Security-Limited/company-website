@@ -17,8 +17,6 @@ const Footer = async () => {
   const page = await client.fetch(servicePageQuery);
   const sections = page?.sections || [];
 
-  console.log(sections)
-
  const displayNavLinks = () => {
   return navLinks.map((link, index) => {
     return (
@@ -41,7 +39,7 @@ const displayServices = () => {
   );
 
   if (!servicesSection?.services?.length) return null;
-  console.log(servicesSection)
+  
 
   return servicesSection.services.slice(0, 6).map((service, index) => (
   
