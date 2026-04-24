@@ -1,6 +1,8 @@
 import { CompanyEmail, Facebook, LinkedIn, TelPhoneContacts } from "@/data";
 import Link from "next/link";
 import React from "react";
+import { client } from "@/sanity/lib/client";
+import { servicePageQuery } from "@/sanity/lib/queries";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -11,7 +13,12 @@ const navLinks = [
   { name: "Contact Us", href: "/contact-us" },
 ];
 
-const Footer = () => {
+const Footer = async () => {
+  const page = await client.fetch(servicePageQuery);
+  const sections = page?.sections || [];
+
+  console.log(sections)
+
  const displayNavLinks = () => {
   return navLinks.map((link, index) => {
     return (
@@ -22,10 +29,32 @@ const Footer = () => {
                 >
                   {link.name}
                 </Link>
-              </li>
+          </li>
     )
   })
  }
+const displayServices = () => {
+  if (!sections?.length) return null;
+
+  const servicesSection = sections.find(
+    (sec) => sec._type === "servicesSection"
+  );
+
+  if (!servicesSection?.services?.length) return null;
+  console.log(servicesSection)
+
+  return servicesSection.services.slice(0, 6).map((service, index) => (
+  
+    <li key={service._id || index}>
+      <Link
+        href="/"
+        className="text-gray-400 hover:text-white transition-colors"
+      >
+        {service.title || "Guarding Services"}
+      </Link>
+    </li>
+  ));
+};
 
   return (
     <footer
@@ -82,46 +111,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-bold mb-6 text-white">Services</h4>
             <ul className="space-y-4">
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Guarding Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Tracking Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Event Security
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Canine Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Private Investigations
-                </a>
-              </li>
+              {displayServices()}
             </ul>
           </div>
 
