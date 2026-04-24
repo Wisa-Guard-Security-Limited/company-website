@@ -12,7 +12,9 @@ const HeroSection = ({ hero }) => {
   return (
     <motion.section
       id="services-hero"
-      className="relative h-100 w-full flex items-center justify-center overflow-hidden bg-brand-navy"
+      className="relative min-h-[55vh] sm:min-h-[65vh] lg:min-h-[75vh] 
+                 w-full flex items-center justify-center 
+                 overflow-hidden bg-brand-navy"
       initial="hidden"
       whileInView="show"
       viewport={{ amount: 0.9 }}
@@ -24,6 +26,7 @@ const HeroSection = ({ hero }) => {
           alt="security guards patrolling"
           fill
           className="object-cover opacity-30"
+          priority
         />
         <div className="absolute inset-0 bg-hero-gradient" />
       </div>
@@ -51,27 +54,37 @@ const HeroSection = ({ hero }) => {
         initial="hidden"
         animate="show"
         transition={{ duration: 0.6 }}
-        className="relative z-20 max-w-6xl mx-auto px-6 text-center"
+        className="relative z-20 max-w-6xl mx-auto 
+                   px-4 sm:px-6 lg:px-12 
+                   text-center"
       >
+        {/* Heading */}
         <motion.h1
           variants={fadeUp}
           initial="hidden"
           animate="show"
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1]"
+          className="text-3xl sm:text-5xl lg:text-6xl 
+                     font-bold text-white 
+                     mb-4 sm:mb-6 
+                     tracking-tight leading-[1.1]"
         >
           {hero?.headline || "Our Services"}
         </motion.h1>
 
+        {/* Paragraph */}
         <motion.p
           variants={fadeUp}
           initial="hidden"
           animate="show"
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed"
+          className="text-sm sm:text-base lg:text-lg 
+                     text-white/80 
+                     max-w-xl sm:max-w-2xl mx-auto 
+                     leading-relaxed"
         >
           {hero?.subtext ||
-            "Explore our comprehensive range of security solutions tailored to meet your unique needs. From on-site guards to advanced surveillance, we have you covered."}
+            "Explore our comprehensive range of security solutions tailored to meet your unique needs."}
         </motion.p>
       </motion.div>
     </motion.section>
