@@ -1,8 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
+import RequestInvestigationBtn from "./RequestInvestigationBtn";
+
 const HeroSection = ({hero}) => {
-  console.log(hero)
+
   return (
     <section
       id="investigations-hero"
@@ -19,22 +21,16 @@ const HeroSection = ({hero}) => {
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold text-brand-navy mb-6 tracking-tight leading-[1.1]">
-              Uncovering the <br />
-              Truth, Discreetly.
+               {hero?.headline || "Investigations"}
             </h1>
 
             <p className="text-lg text-brand-gray mb-10 leading-relaxed">
-              Professional, confidential, and thorough investigation services
-              for corporate and private clients. We provide actionable
-              intelligence to protect your interests.
+              {
+                hero?.subtext || "Sub text"
+              }
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <button className="px-8 py-4 bg-brand-red text-white font-bold rounded-full hover:bg-red-700 transition-colors shadow-lg shadow-brand-red/20 w-full sm:w-auto inline-flex items-center justify-center gap-2">
-                Request Investigation{" "}
-                <i className="fa-solid fa-arrow-right"></i>
-              </button>
-            </div>
+            <RequestInvestigationBtn />
           </div>
 
           <div className="relative hidden lg:block h-125 rounded-3xl overflow-hidden shadow-hover border border-gray-100 bg-white p-8">
