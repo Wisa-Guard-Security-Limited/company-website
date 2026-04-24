@@ -39,7 +39,7 @@ export default function WhatsAppChat() {
       {/* BUTTON */}
       <button
         onClick={() => setOpen(!open)}
-        className="bg-green-500 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl"
+        className="bg-green-500 cursor-pointer text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl"
       >
         <i className="fa-brands fa-whatsapp"></i>
       </button>
