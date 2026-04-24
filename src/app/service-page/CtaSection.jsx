@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 
 const CtaSection = ({ data }) => {
   const router = useRouter();
-  console.log(data);
+
   return (
     <section
       id="services-cta"
