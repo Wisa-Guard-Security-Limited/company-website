@@ -30,6 +30,7 @@ const pageSchema = {
         { type: "complianceCoverageSection" },
         { type: "processSection" },
         { type: "professionalSection" },
+        { type: "investigationSection" },
         { type: "ctaSection" },
       ],
     },

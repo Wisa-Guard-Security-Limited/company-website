@@ -9,6 +9,7 @@ import {
   COVERAGE,
   PROCESS_SECTION,
   PROFESSIONAL_SECTION,
+  INVESTIGATION_SECTION_QUERY,
 } from "./fragments";
 
 export const homePageQuery = `
@@ -58,6 +59,7 @@ export const investigationPageQuery = `
     ...,
     ${HERO},
     ${PROFESSIONAL_SECTION}
+    ${INVESTIGATION_SECTION_QUERY}
   }
 }
 `;

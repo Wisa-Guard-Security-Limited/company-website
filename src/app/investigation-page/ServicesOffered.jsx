@@ -1,26 +1,31 @@
 import React from "react";
 import According from "./According";
 
-const ServicesOffered = () => {
+const ServicesOffered = ({ data }) => {
   return (
     <section id="services-offered" className="py-24 bg-brand-light relative">
       <div className="absolute inset-0 grid-bg pointer-events-none"></div>
 
       <div className="max-w-250 mx-auto px-6 lg:px-12 relative z-10">
+
+        {/* HEADER FROM SANITY */}
         <div className="text-center mb-16">
           <h2 className="text-sm font-bold text-brand-red tracking-wider uppercase mb-3">
-            Our Expertise
+            {data?.eyebrow}
           </h2>
+
           <h3 className="text-3xl md:text-4xl font-bold text-brand-navy mb-4">
-            Comprehensive Investigation Services
+            {data?.title}
           </h3>
+
           <p className="text-brand-gray text-lg max-w-2xl mx-auto">
-            Tailored investigative solutions designed to address complex
-            corporate and personal challenges with absolute discretion.
+            {data?.description}
           </p>
         </div>
 
-        <According />
+        {/* ACCORDION */}
+        <According services={data?.investigationServices || []} />
+
       </div>
     </section>
   );

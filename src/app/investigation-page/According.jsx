@@ -1,54 +1,9 @@
 "use client";
 import { useState } from "react";
 
-const services = [
-  {
-    title: "Background Checks",
-    icon: "fa-id-card-clip",
-    content:
-      "Comprehensive vetting of individuals for employment, partnerships, or personal matters.",
-  },
-  {
-    title: "Corporate Due Diligence",
-    icon: "fa-building-shield",
-    content:
-      "Deep-dive investigations into business partners, mergers, or acquisitions.",
-  },
-  {
-    title: "Fraud & Forensic Investigations",
-    icon: "fa-file-invoice-dollar",
-    content:
-      "Investigation of fraud, embezzlement, and financial irregularities.",
-  },
-  {
-    title: "Asset Tracing & Recovery",
-    icon: "fa-money-bill-transfer",
-    content: "Locating hidden or misappropriated assets across jurisdictions.",
-  },
-  {
-    title: "Home/Office Debugging",
-    icon: "fa-bug-slash",
-    content:
-      "Detection of hidden surveillance devices and eavesdropping equipment.",
-  },
-  {
-    title: "Undercover Operations",
-    icon: "fa-user-ninja",
-    content: "Placement of operatives to identify internal threats.",
-  },
-  {
-    title: "Intelligence Collection",
-    icon: "fa-network-wired",
-    content: "Gathering intelligence using OSINT and HUMINT techniques.",
-  },
-  {
-    title: "Motor Vehicle Forensics",
-    icon: "fa-car-side",
-    content: "Analysis of vehicle systems and incident reconstruction.",
-  },
-];
 
-export default function Accordion() {
+
+export default function Accordion({ services}) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const toggle = (index) => {

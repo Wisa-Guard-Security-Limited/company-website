@@ -20,14 +20,14 @@ const InvestigationPage =  async () => {
               return <HeroSection key={section._key} hero={section} />;
             case "professionalSection":
               return <ProffesionalSection key={section._key} data={section} />;
+            case "investigationSection":
+              return <ServicesOffered key={section._key} data={section} />
 
             default:
               return null;
           }
         })}
-        {/* <HeroSection />
-        <ProffesionalSection />
-        <ServicesOffered /> */}
+      
       </div>
     </>
   );

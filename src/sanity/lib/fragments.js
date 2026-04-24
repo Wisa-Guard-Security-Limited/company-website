@@ -186,3 +186,16 @@ export const PROFESSIONAL_SECTION = `
       stats
   }
 `;
+
+export const INVESTIGATION_SECTION_QUERY = `
+*[_type == "investigationSection"][0]{
+  eyebrow,
+  title,
+  description,
+  investigationServices[]{
+    title,
+    icon,
+    content
+  }
+}
+`;

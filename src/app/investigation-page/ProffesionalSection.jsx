@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
 const ProffesionalSection = ({ data }) => {
   if (!data) return null;
@@ -12,11 +13,12 @@ const ProffesionalSection = ({ data }) => {
           {/* IMAGE */}
           <div className="relative h-125 rounded-3xl overflow-hidden shadow-soft border border-gray-100">
             <Image
-              src={data.image?.asset?.url}
+              src={urlFor(data?.image?.asset).url()}
               alt={data.title}
               fill
               className="object-cover"
               unoptimized
+               sizes="100vw"
             />
 
             <div className="absolute inset-0 bg-brand-navy/10" />
