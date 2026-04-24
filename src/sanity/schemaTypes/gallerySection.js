@@ -13,11 +13,6 @@
       title: "Main Title",
       type: "string",
     },
-    {
-      name: "description",
-      title: "Description",
-      type: "text",
-    },
 
     {
       name: "galleryItems",
@@ -30,11 +25,6 @@
             {
               name: "title",
               title: "Title",
-              type: "string",
-            },
-            {
-              name: "category",
-              title: "Category",
               type: "string",
             },
             {
