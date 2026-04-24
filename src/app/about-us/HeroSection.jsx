@@ -12,7 +12,9 @@ const HeroSection = ({ hero }) => {
   return (
     <motion.section
       id="about-hero"
-      className="relative h-125 w-full flex items-center justify-center overflow-hidden bg-brand-navy"
+      className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[80vh] 
+                 w-full flex items-center justify-center 
+                 overflow-hidden bg-brand-navy"
       initial="hidden"
       whileInView="show"
       viewport={{ amount: 0.9 }}
@@ -29,7 +31,7 @@ const HeroSection = ({ hero }) => {
         <div className="absolute inset-0 bg-hero-gradient" />
       </div>
 
-      {/* SVG lines (fade only) */}
+      {/* SVG lines */}
       <motion.div
         className="absolute inset-0 z-10 opacity-20 pointer-events-none flex items-center justify-center"
         initial={{ opacity: 0 }}
@@ -53,41 +55,56 @@ const HeroSection = ({ hero }) => {
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-6xl mx-auto px-6 text-center">
+      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 
+                      text-center">
+
+        {/* Badge */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           animate="show"
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8"
+          className="inline-flex items-center gap-2 
+                     px-3 sm:px-4 py-1.5 sm:py-2 
+                     rounded-full glass-panel 
+                     mb-6 sm:mb-8"
         >
-          <i className="fa-solid fa-shield-halved text-brand-red"></i>
-          <span className="text-sm font-medium text-white/90">
+          <i className="fa-solid fa-shield-halved text-brand-red text-sm sm:text-base" />
+          <span className="text-xs sm:text-sm font-medium text-white/90">
             Trusted Security Experts
           </span>
         </motion.div>
 
+        {/* Heading */}
         <motion.h1
           variants={fadeUp}
           initial="hidden"
           animate="show"
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1]"
+          className="text-3xl sm:text-5xl lg:text-6xl 
+                     font-bold text-white 
+                     mb-4 sm:mb-6 
+                     tracking-tight leading-[1.1]"
         >
           {hero?.headline ||
             "Setting the Standard in Professional Security Solutions"}
         </motion.h1>
 
+        {/* Paragraph */}
         <motion.p
           variants={fadeUp}
           initial="hidden"
           animate="show"
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed"
+          className="text-sm sm:text-base lg:text-lg 
+                     text-white/80 
+                     max-w-xl sm:max-w-2xl mx-auto 
+                     leading-relaxed"
         >
           {hero?.subtext ||
-            "With decades of experience, we provide top-tier security services tailored to your unique needs. Our commitment to excellence and professionalism ensures your safety is always our priority."}
+            "With decades of experience, we provide top-tier security services tailored to your unique needs."}
         </motion.p>
+
       </div>
     </motion.section>
   );
