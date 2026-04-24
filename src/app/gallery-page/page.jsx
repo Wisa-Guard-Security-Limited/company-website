@@ -5,14 +5,33 @@ import GallerySection from "./GallerySection";
 import CtaSection from "./CtaSection";
 import Navbar from "@/components/Navbar";
 
-const Gallery = () => {
+import { galleryPageQuery } from "@/sanity/lib/queries";
+import { client } from "@/sanity/lib/client";
+
+const Gallery = async () => {
+
+    const page = await client.fetch(galleryPageQuery);
+    const sections = page?.sections || [];
   return (
     <>
       <Navbar />
       <div id="main-content" className="pt-20">
-        <HeroSection />
-        <GallerySection />
-        <CtaSection />
+        {sections.map((section) => {
+          switch (section._type) {
+            case "hero":
+              return <HeroSection key={section._key} hero={section} />;
+
+            case "gallerySection":
+              return <GallerySection key={section._key} data={section} />;
+
+            case "ctaSection":
+              return <CtaSection key={section._key} data={section} />;
+
+            default:
+              return null;
+          }
+        })}
+      
       </div>
     </>
   );

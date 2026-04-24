@@ -8,7 +8,8 @@ const fadeUp = {
   show: { opacity: 1, y: 0 },
 };
 
-const HeroSection = () => {
+const HeroSection = ({hero}) => {
+
   return (
     <section
       id="gallery-hero"
@@ -45,7 +46,7 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.1]"
         >
-          Our Work in Action
+          {hero?.headline}
         </motion.h1>
 
         <motion.p
@@ -56,9 +57,7 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          A glimpse into our professional security operations, showcasing our
-          commitment to safety, vigilance, and excellence across various
-          sectors.
+         { hero?.subtext  }
         </motion.p>
       </div>
     </section>

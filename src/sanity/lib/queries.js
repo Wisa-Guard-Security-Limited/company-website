@@ -63,3 +63,14 @@ export const investigationPageQuery = `
   }
 }
 `;
+
+export const galleryPageQuery = `
+*[_type == "page" && slug.current == "gallery-page"][0]{
+  title,
+  sections[]{
+    ...,
+    ${HERO},
+  
+  }
+}
+`;
