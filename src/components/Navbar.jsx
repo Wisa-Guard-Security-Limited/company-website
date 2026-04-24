@@ -20,25 +20,33 @@ const Navbar = () => {
   return (
     <header
       id="header"
-      className="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300"
+      className="fixed w-full top-0 z-50 
+                 bg-white/95 backdrop-blur-md 
+                 border-b border-gray-100 
+                 shadow-sm transition-all duration-300"
     >
-      <div className="max-w-360 mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto 
+                      px-4 sm:px-6 lg:px-12 
+                      h-16 sm:h-18 lg:h-20 
+                      flex items-center justify-between">
+        
         {/* Logo */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Image
             src="/logo.jpeg"
             alt="Wisa Guard Logo"
-            width={70}
-            height={60}
-            className="object-contain"
+            width={50}
+            height={45}
+            className="object-contain sm:w-[60px] sm:h-[50px] lg:w-[70px] lg:h-[60px]"
           />
-          <span className="text-xl font-bold text-brand-navy tracking-tight">
+          <span className="text-base sm:text-lg lg:text-xl 
+                           font-bold text-brand-navy tracking-tight">
             Wisa Guard
           </span>
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center">
+        <nav className="hidden lg:flex items-center gap-2">
           {navLinks.map((link, i) => {
             const isActive = pathname === link.href;
 
@@ -46,7 +54,10 @@ const Navbar = () => {
               <Link
                 key={i}
                 href={link.href}
-                className={`relative cursor-pointer px-4 py-2 text-sm font-medium transition-colors
+                className={`relative cursor-pointer 
+                            px-3 sm:px-4 py-2 
+                            text-sm sm:text-base font-medium 
+                            transition-colors
               ${
                 isActive
                   ? "text-brand-navy"
@@ -76,7 +87,8 @@ const Navbar = () => {
         {/* Mobile Toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="lg:hidden text-brand-navy text-2xl"
+          className="lg:hidden text-brand-navy 
+                     text-xl sm:text-2xl"
         >
           <i className={`fa-solid ${open ? "fa-xmark" : "fa-bars"}`} />
         </button>
@@ -85,14 +97,19 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {open && (
         <div className="lg:hidden bg-white border-t border-gray-100 shadow-md">
-          <div className="px-6 py-6 space-y-4">
-            {/* Links */}
+          <div className="px-4 sm:px-6 py-4 sm:py-6 space-y-3 sm:space-y-4">
+            
             {navLinks.map((link, i) => (
               <Link
                 key={i}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="block text-base font-medium text-brand-gray hover:text-brand-navy transition-colors"
+                className="block 
+                           text-sm sm:text-base 
+                           font-medium 
+                           text-brand-gray 
+                           hover:text-brand-navy 
+                           transition-colors"
               >
                 {link.name}
               </Link>
