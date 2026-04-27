@@ -24,10 +24,12 @@ const HeroSection = ({ hero }) => {
           src="/images/heroImage.jpeg"
           alt="security hero"
           fill
-          className="object-cover opacity-40"
+          className="object-cover opacity-60"
           priority
         />
-        <div className="absolute inset-0 bg-hero-gradient" />
+
+        {/* SOFT OVERLAY (replaces dark blue layer) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/50 via-brand-navy/20 to-transparent" />
       </div>
 
       {/* SVG Lines */}
@@ -46,7 +48,7 @@ const HeroSection = ({ hero }) => {
 
       {/* Content */}
       <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 text-center">
-        
+
         {/* Badge */}
         <motion.div
           variants={fadeUp}
@@ -94,7 +96,7 @@ const HeroSection = ({ hero }) => {
             "Protecting what matters most with our expert security solutions. Your safety is our priority."}
         </motion.p>
 
-        {/* Buttons */}
+        {/* Button */}
         <motion.div
           initial="hidden"
           animate="show"
@@ -121,7 +123,7 @@ const HeroSection = ({ hero }) => {
         </motion.div>
       </div>
 
-      {/* Floating Icons */}
+      {/* Floating Icons (unchanged) */}
       <motion.div
         className="absolute inset-0 z-10 pointer-events-none"
         initial="hidden"
