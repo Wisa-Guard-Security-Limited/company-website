@@ -1,6 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import React from "react";
+import { urlFor } from "@/sanity/lib/image";
+import Image from "next/image";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -8,6 +10,16 @@ const fadeUp = {
 };
 
 const HeroSection = () => {
+
+const getHeroImage = (hero) => {
+  if (hero?.backgroundImage?.asset) {
+    return hero.backgroundImage;
+  }
+
+  return "/images/heroImage.jpeg";
+};
+
+const imageSrc = getHeroImage(hero);
   return (
     <section
       id="contact-hero"
@@ -16,8 +28,21 @@ const HeroSection = () => {
     >
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-linear-to-b from-brand-navy to-[#111726] z-10" />
-        <div className="absolute inset-0 grid-bg opacity-20 z-10 pointer-events-none" />
+         <Image
+                        src={
+                          typeof imageSrc === "string"
+                            ? imageSrc
+                            : urlFor(imageSrc).url()
+                        }
+                        alt="security hero"
+                        fill
+                        className="object-cover opacity-85"
+                        priority
+                        unoptimized
+                      />
+       
+               {/* SOFT GRADIENT (replaces dark overlay) */}
+               <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/60 via-brand-navy/25 to-transparent" />
       </div>
 
       {/* Content */}
