@@ -12,12 +12,12 @@ const HeroSection = ({ hero }) => {
   return (
     <motion.section
       id="about-hero"
-      className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[80vh] 
-                 w-full flex items-center justify-center 
+      className="relative min-h-[65vh] md:min-h-[75vh] lg:min-h-[85vh]
+                 w-full flex items-center justify-center
                  overflow-hidden bg-brand-navy"
       initial="hidden"
       whileInView="show"
-      viewport={{ amount: 0.9 }}
+      viewport={{ once: true, amount: 0.6 }}
     >
       {/* Background */}
       <div className="absolute inset-0 z-0">
@@ -38,7 +38,7 @@ const HeroSection = ({ hero }) => {
         whileInView={{ opacity: 0.2 }}
         transition={{ duration: 1.2 }}
       >
-        <svg width="100%" height="100%" viewBox="0 0 1440 500" fill="none">
+        <svg viewBox="0 0 1440 500" className="w-full h-full">
           <path
             d="M0 250C300 250 400 150 720 150C1040 150 1140 250 1440 250"
             stroke="white"
@@ -55,8 +55,7 @@ const HeroSection = ({ hero }) => {
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 
-                      text-center">
+      <div className="relative z-20 max-w-360 mx-auto px-6 lg:px-12 text-center">
 
         {/* Badge */}
         <motion.div
@@ -64,13 +63,13 @@ const HeroSection = ({ hero }) => {
           initial="hidden"
           animate="show"
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 
-                     px-3 sm:px-4 py-1.5 sm:py-2 
-                     rounded-full glass-panel 
-                     mb-6 sm:mb-8"
+          className="inline-flex items-center gap-2
+                     px-3 py-1.5 md:px-4 md:py-2
+                     rounded-full glass-panel
+                     mb-6 md:mb-8"
         >
-          <i className="fa-solid fa-shield-halved text-brand-red text-sm sm:text-base" />
-          <span className="text-xs sm:text-sm font-medium text-white/90">
+          <i className="fa-solid fa-shield-halved text-brand-red text-sm md:text-base" />
+          <span className="text-xs md:text-sm font-medium text-white/90">
             Trusted Security Experts
           </span>
         </motion.div>
@@ -81,9 +80,9 @@ const HeroSection = ({ hero }) => {
           initial="hidden"
           animate="show"
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-3xl sm:text-5xl lg:text-6xl 
-                     font-bold text-white 
-                     mb-4 sm:mb-6 
+          className="text-3xl md:text-5xl lg:text-6xl
+                     font-bold text-white
+                     mb-4 md:mb-6
                      tracking-tight leading-[1.1]"
         >
           {hero?.headline ||
@@ -96,9 +95,9 @@ const HeroSection = ({ hero }) => {
           initial="hidden"
           animate="show"
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-sm sm:text-base lg:text-lg 
-                     text-white/80 
-                     max-w-xl sm:max-w-2xl mx-auto 
+          className="text-sm md:text-base lg:text-lg
+                     text-white/80
+                     max-w-xl md:max-w-2xl mx-auto
                      leading-relaxed"
         >
           {hero?.subtext ||
