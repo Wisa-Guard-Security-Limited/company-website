@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -9,6 +10,15 @@ const fadeUp = {
 };
 
 const HeroSection = ({ hero }) => {
+  const getHeroImage = (hero) => {
+  if (hero?.backgroundImage?.asset) {
+    return hero.backgroundImage;
+  }
+
+  return "/images/heroImage.jpeg";
+};
+
+const imageSrc = getHeroImage(hero);
   return (
     <section
       id="gallery-hero"
@@ -18,13 +28,20 @@ const HeroSection = ({ hero }) => {
     >
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/heroImage.jpeg"
-          alt="Professional security guards in uniform on patrol at a corporate event"
+       <Image
+          src={
+            typeof imageSrc === "string"
+              ? imageSrc
+              : urlFor(imageSrc).url()
+          }
+          alt="security hero"
           fill
-          className="object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-linear-to-b from-brand-navy/90 to-[#111726]/95 z-10" />
+          className="object-cover opacity-85"
+          priority
+          unoptimized
+           />
+     
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/50 via-brand-navy/20 to-transparent" />
         <div className="absolute inset-0 grid-bg opacity-20 z-10 pointer-events-none" />
       </div>
 
@@ -76,7 +93,7 @@ const HeroSection = ({ hero }) => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-sm sm:text-base lg:text-lg 
-                     text-gray-400 
+                     text-white
                      mb-8 sm:mb-10 
                      max-w-xl sm:max-w-2xl mx-auto 
                      leading-relaxed"
