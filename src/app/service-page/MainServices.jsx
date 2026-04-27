@@ -81,7 +81,7 @@ const MainServices = ({ data }) => {
     >
       <div className="absolute inset-0 grid-bg pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
 
         {/* Header */}
         <div className="text-center max-w-2xl sm:max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
