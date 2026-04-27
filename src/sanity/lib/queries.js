@@ -77,4 +77,17 @@ export const galleryPageQuery = `
 }
 `;
 
+export const contactPageQuery = `
+*[_type == "page" && slug.current == "contact-page"][0]{
+  title,
+  sections[]{
+    ...,
+    ${HERO},
+  
+  }
+}
+`;
+
+
+
 

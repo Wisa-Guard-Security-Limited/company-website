@@ -1,25 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
 import React from "react";
-import { urlFor } from "@/sanity/lib/image";
-import Image from "next/image";
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0 },
 };
 
-const HeroSection = () => {
-
-const getHeroImage = (hero) => {
-  if (hero?.backgroundImage?.asset) {
-    return hero.backgroundImage;
-  }
-
-  return "/images/heroImage.jpeg";
-};
-
-const imageSrc = getHeroImage(hero);
+const HeroSection = ({hero}) => {
+   
   return (
     <section
       id="contact-hero"
@@ -28,21 +18,8 @@ const imageSrc = getHeroImage(hero);
     >
       {/* Background */}
       <div className="absolute inset-0 z-0">
-         <Image
-                        src={
-                          typeof imageSrc === "string"
-                            ? imageSrc
-                            : urlFor(imageSrc).url()
-                        }
-                        alt="security hero"
-                        fill
-                        className="object-cover opacity-85"
-                        priority
-                        unoptimized
-                      />
-       
-               {/* SOFT GRADIENT (replaces dark overlay) */}
-               <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/60 via-brand-navy/25 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-b from-brand-navy to-[#111726] z-10" />
+        <div className="absolute inset-0 grid-bg opacity-20 z-10 pointer-events-none" />
       </div>
 
       {/* Content */}
@@ -80,7 +57,7 @@ const imageSrc = getHeroImage(hero);
                      mb-4 sm:mb-6 
                      tracking-tight leading-[1.1]"
         >
-          Get in Touch
+          {hero?.headline}
         </motion.h1>
 
         {/* Paragraph */}
@@ -95,9 +72,7 @@ const imageSrc = getHeroImage(hero);
                      max-w-xl sm:max-w-2xl mx-auto 
                      leading-relaxed"
         >
-          Whether you need immediate emergency response, a comprehensive
-          security consultation, or have general inquiries, our team is ready to
-          assist you.
+         {hero?.subtext}
         </motion.p>
       </div>
     </section>
