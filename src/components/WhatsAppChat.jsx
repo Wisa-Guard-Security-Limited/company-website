@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function WhatsAppChat() {
   const [open, setOpen] = useState(false);
 
-  const phone = "+254 795 869312";
+  const phone = "254795869312";
 
   const message =
     "Hello Wisa Guards 👋 I would like to inquire about your services";
