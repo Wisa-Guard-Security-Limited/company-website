@@ -1,4 +1,5 @@
 "use client";
+import { urlFor } from "@/sanity/lib/image";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -11,6 +12,15 @@ const fadeUp = {
 const HeroSection = ({ hero }) => {
   const router = useRouter();
 
+const getHeroImage = (hero) => {
+  if (hero?.backgroundImage?.asset) {
+    return hero.backgroundImage;
+  }
+
+  return "/images/heroImage.jpeg";
+};
+
+const imageSrc = getHeroImage(hero);
   return (
     <section
       id="hero"
@@ -20,12 +30,17 @@ const HeroSection = ({ hero }) => {
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/heroImage.jpeg"
+       <Image
+          src={
+            typeof imageSrc === "string"
+              ? imageSrc
+              : urlFor(imageSrc).url()
+          }
           alt="security hero"
           fill
-          className="object-cover opacity-60"
+          className="object-cover opacity-75"
           priority
+          unoptimized
         />
 
         {/* SOFT OVERLAY (replaces dark blue layer) */}

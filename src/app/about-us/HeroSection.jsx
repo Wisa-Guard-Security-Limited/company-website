@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -9,6 +10,16 @@ const fadeUp = {
 };
 
 const HeroSection = ({ hero }) => {
+
+  const getHeroImage = (hero) => {
+  if (hero?.backgroundImage?.asset) {
+    return hero.backgroundImage;
+  }
+
+  return "/images/heroImage.jpeg";
+};
+
+const imageSrc = getHeroImage(hero);
   return (
     <motion.section
       id="about-hero"
@@ -21,14 +32,21 @@ const HeroSection = ({ hero }) => {
     >
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/heroImage.jpeg"
-          alt="professional corporate security team"
-          fill
-          className="object-cover opacity-40"
-          priority
-        />
-        <div className="absolute inset-0 bg-hero-gradient" />
+           <Image
+                 src={
+                   typeof imageSrc === "string"
+                     ? imageSrc
+                     : urlFor(imageSrc).url()
+                 }
+                 alt="security hero"
+                 fill
+                 className="object-cover opacity-75"
+                 priority
+                 unoptimized
+               />
+
+        {/* SOFT GRADIENT (replaces dark overlay) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/60 via-brand-navy/25 to-transparent" />
       </div>
 
       {/* SVG lines */}
