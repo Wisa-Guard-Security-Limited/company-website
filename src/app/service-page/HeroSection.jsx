@@ -40,7 +40,7 @@ const imageSrc = getHeroImage(hero);
           }
           alt="security hero"
           fill
-          className="object-cover opacity-75"
+          className="object-cover opacity-85"
           priority
           unoptimized
                       />
