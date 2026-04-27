@@ -1,8 +1,18 @@
 import React from "react";
 import Image from "next/image";
 import RequestInvestigationBtn from "./RequestInvestigationBtn";
+import { urlFor } from "@/sanity/lib/image";
 
 const HeroSection = ({ hero }) => {
+  const getHeroImage = (hero) => {
+    if (hero?.backgroundImage?.asset) {
+      return hero.backgroundImage;
+    }
+
+    return "/images/heroImage.jpeg";
+  };
+
+  const imageSrc = getHeroImage(hero);
   return (
     <section
       id="investigations-hero"
@@ -78,14 +88,18 @@ const HeroSection = ({ hero }) => {
           >
             <div className="absolute inset-0 bg-subtle-gradient" />
 
-            <Image
-              src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f1837773bd-da0b5594571cc6ea89f6.png"
-              alt="Private investigator reviewing case files with magnifying glass"
+             <Image
+              src={
+                typeof imageSrc === "string"
+                  ? imageSrc
+                  : urlFor(imageSrc).url()
+              }
+              alt="security hero"
               fill
-              className="object-contain relative z-10"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover opacity-85"
               priority
-            />
+              unoptimized
+                  />
           </div>
         </div>
       </div>
