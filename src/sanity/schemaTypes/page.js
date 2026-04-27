@@ -33,6 +33,7 @@ const pageSchema = {
         { type: "investigationSection" },
         { type: "gallerySection" },
         { type: "ctaSection" },
+        { type: "contactMessage" },
       ],
     },
   ],

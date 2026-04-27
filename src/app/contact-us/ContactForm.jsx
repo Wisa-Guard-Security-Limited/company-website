@@ -1,4 +1,6 @@
 import React from "react";
+import { CompanyEmail, Facebook, LinkedIn, TelPhoneContacts } from "@/data";
+import Form from "./Form";
 
 const ContactForm = () => {
   return (
@@ -21,7 +23,7 @@ const ContactForm = () => {
                 <h3 className="text-base sm:text-lg lg:text-xl font-bold text-brand-navy mb-1 sm:mb-2">
                   Office Location
                 </h3>
-                <p className="text-sm sm:text-base text-brand-gray">Suraj Plaza, Ngara</p>
+                <p className="text-sm sm:text-base text-brand-gray">Suraj Plaza, Ngara Limuru Road, Opp Jamuhuri Secondary School</p>
                 <p className="text-sm sm:text-base text-brand-gray">Nairobi, Kenya</p>
               </div>
             </div>
@@ -36,15 +38,11 @@ const ContactForm = () => {
                   Phone Numbers
                 </h3>
                 <div className="space-y-1 sm:space-y-2">
-                  <a href="tel:+254700000000" className="block text-sm sm:text-base text-brand-gray hover:text-brand-red">
-                    +254 700 000 000 (Main)
+                  
+                  <a href="tel:+254700000001" className="block text-sm sm:text-base text-brand-red font-bold">
+                   {TelPhoneContacts}
                   </a>
-                  <a href="tel:+254700000001" className="block text-sm sm:text-base text-brand-gray hover:text-brand-red">
-                    +254 700 000 001 (Support)
-                  </a>
-                  <a href="tel:911" className="block text-sm sm:text-base text-brand-red font-bold">
-                    911 (Emergency)
-                  </a>
+                 
                 </div>
               </div>
             </div>
@@ -60,11 +58,9 @@ const ContactForm = () => {
                 </h3>
                 <div className="space-y-1 sm:space-y-2">
                   <a href="mailto:info@wisaguard.co.ke" className="block text-sm sm:text-base text-brand-gray hover:text-brand-red">
-                    info@wisaguard.co.ke
+                  { CompanyEmail}
                   </a>
-                  <a href="mailto:support@wisaguard.co.ke" className="block text-sm sm:text-base text-brand-gray hover:text-brand-red">
-                    support@wisaguard.co.ke
-                  </a>
+                
                 </div>
               </div>
             </div>
@@ -86,59 +82,7 @@ const ContactForm = () => {
                 </p>
               </div>
 
-              <form className="space-y-4 sm:space-y-6">
-                
-                {/* GRID */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-                  
-                  <input
-                    type="text"
-                    placeholder="Full Name"
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 outline-none"
-                  />
-
-                  <input
-                    type="tel"
-                    placeholder="Phone Number"
-                    className="w-full px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 outline-none"
-                  />
-                </div>
-
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 outline-none"
-                />
-
-                <select className="w-full px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 outline-none">
-                  <option>General Inquiry</option>
-                  <option>Guarding Services</option>
-                  <option>CCTV Installation</option>
-                  <option>Dog Services</option>
-                  <option>Tracking Systems</option>
-                  <option>Private Investigations</option>
-                </select>
-
-                <textarea
-                  rows="4"
-                  placeholder="How can we help you securely today?"
-                  className="w-full px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 outline-none resize-none"
-                />
-
-                {/* BUTTON */}
-                <div className="pt-2">
-                  <button
-                    type="button"
-                    className="w-full sm:w-auto px-6 sm:px-8 lg:px-10 py-3 sm:py-4 text-sm sm:text-base lg:text-lg 
-                               bg-brand-red text-white font-bold rounded-full 
-                               hover:bg-red-700 transition-colors shadow-lg shadow-brand-red/20 
-                               flex items-center justify-center gap-2 sm:gap-3"
-                  >
-                    Send Message <i className="fa-solid fa-paper-plane"></i>
-                  </button>
-                </div>
-
-              </form>
+              <Form />
             </div>
           </div>
 

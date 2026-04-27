@@ -12,6 +12,7 @@ import processSection from "./processSection";
 import professionalSectionSchema from "./professionalSection";
 import { investigationServiceSchema } from "./investigationService";
 import gallerySectionSchema from "./gallerySection";
+import contactMessageschema from "./contactMessage";
 export const schema = {
   types: [
     pageSchema,
@@ -27,6 +28,7 @@ export const schema = {
     processSection,
     professionalSectionSchema,
     investigationServiceSchema,
-    gallerySectionSchema
+    gallerySectionSchema,
+    contactMessageschema
   ],
 };
