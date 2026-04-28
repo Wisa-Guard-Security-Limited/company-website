@@ -40,7 +40,7 @@ const MapSection = () => {
 
           {/* iframe */}
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.826727720973!2d36.8188176!3d-1.277432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f172cfc8b0933%3A0xb129bb8877bc9!2sSuraj%20Plaza%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1700000000000!5m2!1sen!2ske"
+            src="https://www.google.com/maps?q=-1.27335,36.82271&z=17&output=embed"
             className="absolute inset-0 w-full h-full z-20"
             style={{ border: 0 }}
             loading="lazy"
