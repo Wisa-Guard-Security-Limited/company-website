@@ -61,7 +61,6 @@ const displayServices = () => {
 
   if (!servicesSection?.services?.length) return null;
   
-
   return servicesSection.services.map((service, index) => (
   
      <option key={index}>{service.title}</option>

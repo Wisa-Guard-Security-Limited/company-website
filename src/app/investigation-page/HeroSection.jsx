@@ -96,7 +96,7 @@ const HeroSection = ({ hero }) => {
               }
               alt="security hero"
               fill
-              className="object-cover opacity-85"
+              className="object-contain"
               priority
               unoptimized
                   />
