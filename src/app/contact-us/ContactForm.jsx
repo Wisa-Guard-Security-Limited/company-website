@@ -1,5 +1,5 @@
 import React from "react";
-import { CompanyEmail, Facebook, LinkedIn, TelPhoneContacts } from "@/data";
+import { CompanyEmail, TelPhoneContacts } from "@/data";
 import Form from "./Form";
 // --- QUERIES ---
 import { client } from "@/sanity/lib/client";
