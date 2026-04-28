@@ -47,7 +47,7 @@ const WhyUsSection = ({ data }) => {
                  rounded-t-[24px] sm:rounded-t-[32px] lg:rounded-t-[40px] 
                  z-30"
     >
-      <div className="mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-12">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16">
