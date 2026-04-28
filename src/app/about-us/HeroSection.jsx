@@ -114,7 +114,7 @@ const imageSrc = getHeroImage(hero);
           animate="show"
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-sm md:text-base lg:text-lg
-                     text-white/80
+                     text-white
                      max-w-xl md:max-w-2xl mx-auto
                      leading-relaxed"
         >

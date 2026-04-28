@@ -1,13 +1,14 @@
 import Footer from "@/components/Footer";
 import "./globals.css";
-
-import { Inter } from "next/font/google";
+import { Lato } from "next/font/google";
+// import { Inter } from "next/font/google";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import WhatsAppChat from "@/components/WhatsAppChat";
 
-const inter = Inter({
+const inter = Lato({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["100", "300", "400", "700", "900"], // Lato supports multiple weights
+  variable: "--font-lato",
 });
 
 export const metadata = {
