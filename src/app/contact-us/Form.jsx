@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { client } from "@/sanity/lib/client"; // make sure this exists
 
-const Form = () => {
+const Form =  () => {
   const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
