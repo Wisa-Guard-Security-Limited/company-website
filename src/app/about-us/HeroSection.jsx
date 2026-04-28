@@ -46,7 +46,7 @@ const imageSrc = getHeroImage(hero);
                />
 
         {/* SOFT GRADIENT (replaces dark overlay) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/60 via-brand-navy/25 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-brand-navy/60 via-brand-navy/25 to-transparent" />
       </div>
 
       {/* SVG lines */}

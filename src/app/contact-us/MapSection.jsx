@@ -41,7 +41,7 @@ const MapSection = () => {
           {/* iframe */}
           <iframe
             src="https://www.google.com/maps?q=-1.27335,36.82271&z=17&output=embed"
-            className="absolute inset-0 w-full h-full z-20"
+            className="absolute inset-0 w-full h-full z-20 width-100"
             style={{ border: 0 }}
             loading="lazy"
             allowFullScreen
