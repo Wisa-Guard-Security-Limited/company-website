@@ -18,6 +18,8 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
+    <>
+    
     <header
       id="header"
       className="fixed w-full top-0 z-50 
@@ -25,11 +27,16 @@ const Navbar = () => {
                  border-b border-gray-100 
                  shadow-sm transition-all duration-300"
     >
+      <div className="bg-brand-red" style={{
+        width: "100%",
+        height: "3px"
+      }}></div>
+        
       <div className="max-w-6xl mx-auto 
                       px-4 sm:px-6 lg:px-12 
                       h-16 sm:h-18 lg:h-20 
                       flex items-center justify-between">
-        
+                        
         {/* Logo */}
         <div className="flex items-center gap-2 sm:gap-3">
           <Image
@@ -118,6 +125,7 @@ const Navbar = () => {
         </div>
       )}
     </header>
+    </>
   );
 };
 

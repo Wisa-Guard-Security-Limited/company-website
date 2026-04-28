@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="m-0 p-0 text-brand-navy antialiased">
+        
         {children}
 
         <Footer />

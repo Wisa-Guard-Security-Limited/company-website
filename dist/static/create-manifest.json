@@ -1,5 +1,5 @@
 {
-  "createdAt": "2026-04-22T08:37:06.470Z",
+  "createdAt": "2026-04-27T10:53:26.783Z",
   "studioVersion": "5.21.0",
   "version": 3,
   "workspaces": [
@@ -13,7 +13,7 @@
       },
       "name": "default",
       "projectId": "onitop5o",
-      "schema": "f1f814dc.create-schema.json",
+      "schema": "11425fcd.create-schema.json",
       "title": "Default",
       "tools": "ef87c8fe.create-tools.json"
     }

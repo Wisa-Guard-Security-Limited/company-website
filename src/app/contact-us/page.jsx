@@ -21,7 +21,7 @@ const ContactUs = async () => {
               return <HeroSection key={section._key} hero={section} />;
 
               case "contactMessage":
-                return  <ContactForm />
+                return  <ContactForm key={section._key} />
 
             default:
               return null;
