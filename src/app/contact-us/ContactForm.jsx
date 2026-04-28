@@ -1,8 +1,14 @@
 import React from "react";
 import { CompanyEmail, Facebook, LinkedIn, TelPhoneContacts } from "@/data";
 import Form from "./Form";
+// --- QUERIES ---
+import { client } from "@/sanity/lib/client";
+import { servicePageQuery } from "@/sanity/lib/queries";
 
-const ContactForm = () => {
+const ContactForm = async () => {
+   const page = await client.fetch(servicePageQuery);
+   const sections = page?.sections || [];
+  
   return (
     <section
       id="contact-details"
@@ -82,7 +88,7 @@ const ContactForm = () => {
                 </p>
               </div>
 
-              <Form />
+              <Form sections={sections} />
             </div>
           </div>
 

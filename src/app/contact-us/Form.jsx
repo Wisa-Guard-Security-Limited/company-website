@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { client } from "@/sanity/lib/client"; // make sure this exists
 
-const Form =  () => {
+const Form = ({sections}) => {
   const [loading, setLoading] = useState(false);
 
   const [form, setForm] = useState({
@@ -52,6 +52,22 @@ const Form =  () => {
     }
   };
 
+const displayServices = () => {
+  if (!sections?.length) return null;
+
+  const servicesSection = sections.find(
+    (sec) => sec._type === "servicesSection"
+  );
+
+  if (!servicesSection?.services?.length) return null;
+  
+
+  return servicesSection.services.map((service, index) => (
+  
+     <option key={index}>{service.title}</option>
+  ));
+};
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
 
@@ -93,11 +109,8 @@ const Form =  () => {
         className="w-full px-4 sm:px-5 py-3 sm:py-4 text-sm sm:text-base rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 outline-none"
       >
         <option>General Inquiry</option>
-        <option>Guarding Services</option>
-        <option>CCTV Installation</option>
-        <option>Dog Services</option>
-        <option>Tracking Systems</option>
-        <option>Private Investigations</option>
+        {displayServices()}
+        
       </select>
 
       <textarea
