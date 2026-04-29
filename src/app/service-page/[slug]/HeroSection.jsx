@@ -56,8 +56,7 @@ const HeroSection = ({data}) => {
                          tracking-tight leading-[1.1]"
             >
               {data?.title}
-              <br />
-              Services
+             
             </h1>
 
             {/* Paragraph */}
