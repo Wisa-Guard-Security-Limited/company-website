@@ -87,7 +87,7 @@ const HeroSection = ({data}) => {
                 Request This Service
                 <i className="fa-solid fa-arrow-right" />
               </button>
-              <a href="/files/brochure.pdf" download>
+              <a href="/files/bronchure.pdf" download>
               <button
                 className="w-full sm:w-auto 
                            px-6 sm:px-8 py-3 sm:py-4 
