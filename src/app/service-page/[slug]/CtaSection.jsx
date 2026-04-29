@@ -1,6 +1,11 @@
-import React from "react";
+"use client"
 
-const CtaSection = () => {
+import { TelPhoneContacts } from "@/data";
+import React from "react";
+import { useRouter } from "next/navigation";
+
+const CtaSection = ({data}) => {
+    const router = useRouter();
   return (
     <section
       id="service-cta"
@@ -24,14 +29,14 @@ const CtaSection = () => {
                           rounded-2xl bg-brand-red/10 
                           flex items-center justify-center 
                           text-brand-red mx-auto mb-5 sm:mb-6">
-            <i className="fa-solid fa-file-signature text-xl sm:text-2xl" />
+            <i className={`fa-solid ${data?.icon} text-xl sm:text-2xl`} />
           </div>
 
           {/* Title */}
           <h2 className="text-2xl sm:text-3xl 
                          font-bold text-brand-navy 
                          mb-3 sm:mb-4">
-            Secure Your Premises Today
+            Secure Your {data?.title} Today
           </h2>
 
           {/* Description */}
@@ -40,12 +45,12 @@ const CtaSection = () => {
                         mb-6 sm:mb-8 
                         max-w-md sm:max-w-xl mx-auto 
                         leading-relaxed">
-            Dont leave your security to chance. Get a customized guarding
-            solution tailored to your specific operational needs.
+            Get a customized {data?.title} solution tailored to your specific operational needs.
           </p>
 
           {/* Button */}
           <button
+            onClick={() => router.push(`/contact-us`)}
             className="px-6 sm:px-10 py-3 sm:py-4 
                        bg-brand-red text-white 
                        font-bold text-sm sm:text-lg 
@@ -53,7 +58,9 @@ const CtaSection = () => {
                        hover:bg-red-700 
                        transition-colors 
                        shadow-lg shadow-brand-red/20 
-                       inline-flex items-center gap-2 sm:gap-3"
+                       inline-flex items-center gap-2 sm:gap-3
+                       cursor-pointer
+                       "
           >
             Request This Service
             <i className="fa-solid fa-arrow-right" />
@@ -63,10 +70,10 @@ const CtaSection = () => {
           <p className="mt-5 sm:mt-6 text-xs sm:text-sm text-brand-gray">
             Or call us directly at{" "}
             <a
-              href="tel:+254700000000"
+              href="tel:+254726704151"
               className="font-bold text-brand-navy hover:text-brand-red transition-colors"
             >
-              +254 700 000 000
+              {TelPhoneContacts}
             </a>
           </p>
 

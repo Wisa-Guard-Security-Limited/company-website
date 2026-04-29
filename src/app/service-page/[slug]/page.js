@@ -3,7 +3,7 @@ import React from "react";
 import HeroSection from "./HeroSection";
 import ServiceOverview from "./ServiceOverview";
 import BenifitsSection from "./BenifitsSection";
-import CtaSection from "../CtaSection";
+import CtaSection from "./CtaSection";
 // --- QUERIES ---
 import { client } from "@/sanity/lib/client";
 import { serviceBySlugQuery } from "@/sanity/lib/queries";
@@ -22,7 +22,7 @@ const service = await client.fetch(serviceBySlugQuery, {
         <HeroSection data={service} />
         <ServiceOverview />
         <BenifitsSection />
-        <CtaSection />
+        <CtaSection data={service} />
       </div>
     </>
   );
