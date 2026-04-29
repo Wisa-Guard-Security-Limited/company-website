@@ -87,7 +87,18 @@ export const contactPageQuery = `
   }
 }
 `;
-
+export const serviceBySlugQuery = `
+*[_type == "service" && slug.current == $slug][0]{
+  title,
+  description,
+  icon,
+  image{
+    asset->{
+      url
+    }
+  }
+}
+`;
 
 
 

@@ -1,7 +1,23 @@
+"use client"
 import React from "react";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
+import { useRouter } from "next/navigation";
 
-const HeroSection = () => {
+const HeroSection = ({data}) => {
+  const router = useRouter();
+
+  const getHeroImage = (hero) => {
+    if (hero?.image?.asset) {
+      return hero.image;
+    }
+
+    return "https://storage.googleapis.com/uxpilot-auth.appspot.com/4df6dc4c2f-74e669eab864318461fa.png";
+  };
+
+  const imageSrc = getHeroImage(data);
+  
+  
   return (
     <section
       id="service-detail-hero"
@@ -28,7 +44,7 @@ const HeroSection = () => {
                             text-xs sm:text-sm 
                             font-bold 
                             mb-5 sm:mb-6">
-              <i className="fa-solid fa-user-shield" />
+              <i className={`fa-solid ${data?.icon}` }/>
               Premium Service
             </div>
 
@@ -39,8 +55,9 @@ const HeroSection = () => {
                          mb-4 sm:mb-6 
                          tracking-tight leading-[1.1]"
             >
-              Professional <br />
-              Guarding Services
+              {data?.title}
+              <br />
+              Services
             </h1>
 
             {/* Paragraph */}
@@ -50,14 +67,13 @@ const HeroSection = () => {
                          mb-8 sm:mb-10 
                          leading-relaxed"
             >
-              Highly trained, vetted, and professional security personnel for
-              residential, commercial, and industrial properties. We provide a
-              visible deterrent and rapid response to any security threat.
+              {data?.description}
             </p>
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <button
+               onClick={() => router.push(`/contact-us`)}
                 className="w-full sm:w-auto 
                            px-6 sm:px-8 py-3 sm:py-4 
                            bg-brand-red text-white 
@@ -65,12 +81,14 @@ const HeroSection = () => {
                            hover:bg-red-700 
                            transition-colors 
                            shadow-lg shadow-brand-red/20 
-                           inline-flex items-center justify-center gap-2"
+                           inline-flex items-center justify-center gap-2
+                           cursor-pointer
+                           "
               >
                 Request This Service
                 <i className="fa-solid fa-arrow-right" />
               </button>
-
+              <a href="/files/brochure.pdf" download>
               <button
                 className="w-full sm:w-auto 
                            px-6 sm:px-8 py-3 sm:py-4 
@@ -79,10 +97,13 @@ const HeroSection = () => {
                            hover:bg-gray-50 
                            transition-colors 
                            border border-gray-200 
-                           shadow-sm"
+                           shadow-sm
+                           cursor-pointer
+                           "
               >
                 Download Brochure
               </button>
+              </a>
             </div>
 
           </div>
@@ -96,12 +117,18 @@ const HeroSection = () => {
 
             <div className="absolute inset-0 bg-subtle-gradient" />
 
-            <Image
-              src="https://storage.googleapis.com/uxpilot-auth.appspot.com/4df6dc4c2f-74e669eab864318461fa.png"
-              alt="professional security guard standing confidently in front of a modern corporate building"
+           <Image
+              src={
+                typeof imageSrc === "string"
+                  ? imageSrc
+                  : urlFor(imageSrc).url()
+              }
+              alt="security hero"
               fill
-              className="object-contain relative z-10"
-            />
+              className="object-contain"
+              priority
+              unoptimized
+             />
           </div>
 
         </div>
